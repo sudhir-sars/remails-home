@@ -64,13 +64,17 @@ export default function Component() {
                 </p>
                 <div className="flex flex-col gap-10 min-[400px]:flex-row">
                   <Link
-                    href="#"
+                    href="http://remails.vercel.app/"
                     className="inline-flex rounded-full h-10 items-center justify-center  bg-primary px-8 text-sm font-medium text-primary-foreground shadow transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50"
                     prefetch={false}
                   >
                     Get Started
                   </Link>
-                  <Link href="#" className="" prefetch={false}>
+                  <Link
+                    href="http://remails.vercel.app/"
+                    className=""
+                    prefetch={false}
+                  >
                     <ShinyButton
                       text="Learn More"
                       className="h-10 px-8 rounded-full"
