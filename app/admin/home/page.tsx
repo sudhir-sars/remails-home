@@ -29,6 +29,7 @@ interface User {
   email: string;
   status: 'online' | 'offline';
 }
+import { Charts } from '@/components/Charts';
 import { MessageUsers } from '@/components/admin/MessageUsers';
 import UserTable from '@/components/admin/UserTable';
 
@@ -142,69 +143,68 @@ const HomePage = () => {
   };
 
   return (
-    <ScaledApp>
-      <div className="flex min-h-screen flex-col ">
-        <div className="flex flex-col min-h-[100dvh] ">
-          <header className="sticky top-0 px-4 lg:px-6 h-14 flex items-center border-b bg-background z-50 mt-6 mx-44">
+    <div className="flex min-h-screen flex-col ">
+      <div className="flex flex-col min-h-[100dvh] ">
+        <header className="sticky top-0 px-4 lg:px-6 h-14 flex items-center border-b bg-background z-50 mt-6 mx-44">
+          <Link
+            href="#"
+            className="flex items-center justify-center"
+            prefetch={false}
+          >
+            <h1 className="text-3xl font-bold">Admin Dashboard</h1>
+          </Link>
+          <nav className="ml-auto flex items-center gap-4 sm:gap-6">
             <Link
-              href="#"
-              className="flex items-center justify-center"
+              href="/"
+              className="text-sm font-medium hover:underline underline-offset-4"
               prefetch={false}
             >
-              <h1 className="text-3xl font-bold">Admin Dashboard</h1>
+              Home
             </Link>
-            <nav className="ml-auto flex items-center gap-4 sm:gap-6">
-              <Link
-                href="/"
-                className="text-sm font-medium hover:underline underline-offset-4"
-                prefetch={false}
-              >
-                Home
-              </Link>
-              <Link
-                href="#"
-                className="text-sm font-medium hover:underline underline-offset-4"
-                prefetch={false}
-              >
-                Features
-              </Link>
-              <Link
-                href="#"
-                className="text-sm font-medium hover:underline underline-offset-4"
-                prefetch={false}
-              >
-                About
-              </Link>
-              <Link
-                href="#"
-                className="text-sm font-medium hover:underline underline-offset-4"
-                prefetch={false}
-              >
-                Contact
-              </Link>
-              <ThemeToggle />
-              <Button variant={'outline'} onClick={handleLogout}>
-                Logout
-              </Button>
-            </nav>
-          </header>
+            <Link
+              href="#"
+              className="text-sm font-medium hover:underline underline-offset-4"
+              prefetch={false}
+            >
+              Features
+            </Link>
+            <Link
+              href="#"
+              className="text-sm font-medium hover:underline underline-offset-4"
+              prefetch={false}
+            >
+              About
+            </Link>
+            <Link
+              href="#"
+              className="text-sm font-medium hover:underline underline-offset-4"
+              prefetch={false}
+            >
+              Contact
+            </Link>
+            <ThemeToggle />
+            <Button variant={'outline'} onClick={handleLogout}>
+              Logout
+            </Button>
+          </nav>
+        </header>
 
-          <main className="flex-col space-y-12 p-8 mx-44">
-            <UserTable
-              connectedUsers={connectedUsers}
-              onDisconnect={handleDisconnect}
-              onMessage={handleMessageUser}
+        <main className="flex-col space-y-12 p-8 mx-44">
+          <UserTable
+            connectedUsers={connectedUsers}
+            onDisconnect={handleDisconnect}
+            onMessage={handleMessageUser}
+          />
+          <div className="flex justify-center">
+            <MessageUsers
+              onBroadcast={handleBroadcastMessage}
+              onMessage={handleNotifyUser}
             />
-            <div className="flex justify-center">
-              <MessageUsers
-                onBroadcast={handleBroadcastMessage}
-                onMessage={handleNotifyUser}
-              />
-            </div>
-          </main>
-        </div>
+          </div>
+          <Charts />
+        </main>
       </div>
-    </ScaledApp>
+    </div>
   );
 };
 
