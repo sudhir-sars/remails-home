@@ -135,7 +135,7 @@ export default function Component() {
               </div>
               <div className="w-[80vw] h-80vh max-w-4xl rounded-xl overflow-hidden">
                 <iframe
-                  src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+                  src="https://youtu.be/8oXxF2DvjMM"
                   title="Remails Video"
                   frameBorder="0"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
